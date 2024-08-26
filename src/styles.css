@@ -1,0 +1,187 @@
+/* Dark mode theme */
+.dark-mode {
+  --background-color: #333333;
+  --text-color: #ffffff;
+  --button-background: #007bff;
+  --button-text: #ffffff;
+  --switch-background: #555555; /* Dark background for the switch */
+  --switch-handle: #ffffff; /* Dark handle color */
+}
+
+/* Light mode theme (default) */
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --button-background: #007bff;
+  --button-text: #ffffff;
+  --switch-background: #ddd; /* Light background for the switch */
+  --switch-handle: #000000; /* Light handle color */
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 1vh;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.whole-switch {
+  display: flex;
+  gap: 2vh;
+  justify-content: flex-end;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically, optional */
+  margin-top: 2vh;
+}
+
+.centered-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+.input-group {
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center; /* Centers input horizontally */
+  gap: 10vh;
+}
+
+input[type="number"] {
+  width: 20vh;
+  padding: 10px; /* Add padding inside the input */
+  font-size: 16px; /* Adjust font size */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+input[type="number"]:focus {
+  border-color: #007bff; /* Change border color on focus */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Highlight shadow on focus */
+  outline: none; /* Remove default outline */
+}
+
+.calculation {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+/* Styles for the switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--switch-background);
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--switch-handle);
+  transition: 0.4s;
+}
+
+/* When the switch is checked */
+input:checked + .slider {
+  background-color: var(--button-text);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+  background-color: var(--button-background); /* Handle color on checked */
+}
+
+/* Slider transition */
+.slider {
+  background-color: var(--switch-background);
+}
+
+.slider:before {
+  background-color: var(--switch-handle);
+}
+
+.info-section {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.toggle-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.toggle-button:hover {
+  background-color: #0056b3;
+}
+
+.expandable-content {
+  display: none; /* Hidden by default */
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: var(--switch-background);
+}
+
+@media (max-width: 768px) {
+  /* Adjust the breakpoint as needed */
+  .input-group {
+    margin-top: 1vh;
+  }
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers input horizontally */
+    gap: 2vh;
+  }
+}
